@@ -7,7 +7,8 @@ async function bootstrap() {
   // Включаем CORS с конкретным origin (для безопасности; замените на '*' для всех, но не в prod)
   app.enableCors({
     origin: [
-      'http://localhost:5173',
+      'http://localhost:5173', // Dev server
+      'http://localhost:4173', // Preview server
       'https://TieR89.github.io/vue-forms-app/',
     ],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
