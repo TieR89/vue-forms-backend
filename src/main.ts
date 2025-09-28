@@ -4,12 +4,12 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  // Включаем CORS с конкретным origin (для безопасности; замените на '*' для всех, но не в prod)
   app.enableCors({
     origin: [
-      'http://localhost:5173', // Dev server
-      'http://localhost:4173', // Preview server
-      'https://TieR89.github.io/vue-forms-app/',
+      'http://localhost:5173',
+      'http://localhost:4173',
+      'https://TieR89.github.io', // Root domain
+      'https://TieR89.github.io/vue-forms-app/', // Full path
     ],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
