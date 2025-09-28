@@ -6,10 +6,10 @@ async function bootstrap() {
 
   app.enableCors({
     origin: [
-      'http://localhost:5173',
-      'http://localhost:4173',
-      'https://TieR89.github.io', // Root domain
-      'https://TieR89.github.io/vue-forms-app/', // Full path
+      'http://localhost:5173', // Dev
+      'http://localhost:4173', // Preview
+      'https://tier89.github.io', // Prod root
+      'https://tier89.github.io/vue-forms-app/', // Full path
     ],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
