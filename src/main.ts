@@ -6,15 +6,13 @@ async function bootstrap() {
 
   app.enableCors({
     origin: [
-      'http://localhost:5173', // Vite dev
-      'http://localhost:4173', // Vite preview
-      'https://tier89.github.io', // Root GitHub Pages origin
-      'https://tier89.github.io/vue-forms-app/', // Full path для app
-      'https://vue-forms-app.vercel.app',
+      'http://localhost:5173', // Dev
+      'http://localhost:4173', // Preview
+      'https://tier89.github.io',
     ],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
-    allowedHeaders: 'Content-Type, Accept',
-    credentials: true, // Если нужно cookies/auth
+    allowedHeaders: 'Content-Type, Accept, Origin',
+    credentials: true,
   });
 
   await app.listen(3000);
