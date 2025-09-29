@@ -1,20 +1,17 @@
 import { Controller, Post, Body } from '@nestjs/common';
-import * as fs from 'fs/promises'; // Для записи в файл
 
 @Controller('form')
 export class AppController {
   @Post('a')
-  async createFormA(@Body() data: any) {
-    console.log('Form A data:', data); // Вывод в консоль
-    await fs.appendFile('forms.log', `Form A: ${JSON.stringify(data)}\n`); // Запись в файл
+  createFormA(@Body() data: any) {
+    console.log('Form A data:', data); // Только консоль
     if (Math.random() < 0.2) return { error: 'Ошибка на сервере' };
     return { requestId: this.generateId(data), classifier: 'classifier-a' };
   }
 
   @Post('b')
-  async createFormB(@Body() data: any) {
+  createFormB(@Body() data: any) {
     console.log('Form B data:', data);
-    await fs.appendFile('forms.log', `Form B: ${JSON.stringify(data)}\n`);
     if (Math.random() < 0.2) return { error: 'Ошибка на сервере' };
     return { requestId: this.generateId(data), classifier: 'classifier-b' };
   }
